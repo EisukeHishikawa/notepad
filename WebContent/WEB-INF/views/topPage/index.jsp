@@ -8,20 +8,10 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>メモ帳へようこそ</h2>
-        <h3>【自分のメモ　一覧】</h3>
         <table id="memo_list">
             <tbody>
-                <tr>
-                    <th class="memo_name">アカウント名</th>
-                    <th class="memo_date">日付</th>
-                    <th class="memo_title">タイトル</th>
-                    <th class="memo_action">操作</th>
-                </tr>
                 <c:forEach var="memo" items="${memos}" varStatus="status">
                     <tr class="row${status.count % 2}">
-                        <td class="memo_name"><c:out value="${memo.account.name}" /></td>
-                        <td class="memo_date"><fmt:formatDate value='${memo.memo_date}' pattern='yyyy-MM-dd' /></td>
                         <td class="memo_title">${memo.title}</td>
                         <td class="memo_action"><a href="<c:url value='/memos/show?id=${memo.id}' />">詳細を見る</a></td>
                     </tr>
